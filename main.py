@@ -1,9 +1,10 @@
 import requests
+import constants
 
 
 def telegram_bot_sendtext(bot_message):
-    bot_token = '7652499183:AAHTvOJfJr9YaKEL30ZCh0zWeFvQdfjXTUE'
-    bot_chat_id = '-4544284326'
+    bot_token = constants.TELEGRAM_BOT_TOKEN
+    bot_chat_id = constants.TELEGRAM_BOT_ID
     send_text = 'https://api.telegram.org/bot' + bot_token + '/sendMessage?chat_id=' + bot_chat_id + '&parse_mode=Markdown&text=' + bot_message
 
     response = requests.get(send_text)
@@ -11,7 +12,7 @@ def telegram_bot_sendtext(bot_message):
     return response.json()
 
 
-api_key = "2b8a5b04ff1ffe9946aba25e522a9ecb"
+api_key = constants.OWM_API_KEY
 api_endpoint = 'https://api.openweathermap.org/data/2.5/forecast'
 MY_LAT = 33.745472
 MY_LONG = -117.867653
